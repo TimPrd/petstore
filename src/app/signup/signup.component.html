@@ -1,0 +1,13 @@
+<div>
+    <form [formGroup]="form" (ngSubmit)="onSubmitSignup()">
+        <input type="text" name="username" placeholder="Username" formControlName="username">
+        <div *ngIf="f.username.errors">
+            Username not valid.
+        </div>
+        <input type="password" name="password" placeholder="Password" formControlName="password">
+        <div *ngIf="f.password.errors">
+            Password not valid.
+        </div>
+        <button type="submit"> Signin</button>
+    </form>
+</div>
