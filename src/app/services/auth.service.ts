@@ -23,7 +23,6 @@ export class AuthService {
       this.currentSessionSubject = new BehaviorSubject<Session>(null);
     }
     this.currentSession = this.currentSessionSubject.asObservable();
-    console.log(currentSession);
   }
 
   public get currentSessionValue(): Session {
@@ -46,7 +45,6 @@ export class AuthService {
   }
 
   public logout(): void {
-    console.log("LOGOUT");
     localStorage.removeItem('currentSession');
     this.currentSessionSubject.next(null);
     this.router.navigate(['/signin']);
