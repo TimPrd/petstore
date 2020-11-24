@@ -11,9 +11,7 @@ import { map } from 'rxjs/operators';
 })
 export class PetService {
 
-  constructor(private router: Router, private authService: AuthService, private http: HttpClient) {
-
-  }
+  constructor(private router: Router, private authService: AuthService, private http: HttpClient) { }
 
   public getById(idStore, idPet): Observable<any> {
     return this.http.get<any>(`${environment.server}/pet-stores/${idStore}/pets/${idPet}`).pipe(map((res) => {
