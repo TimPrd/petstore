@@ -4,7 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { AuthGuard } from './helpers/guards/auth.guard';
-
+import { PetStoreComponent } from './pet-store/pet-store.component';
 const routes: Routes = [
   {
     path: 'signup',
@@ -17,6 +17,11 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'store/:id',
+    component: PetStoreComponent,
+    outlet: 'side'
   },
   {
     path: '**',

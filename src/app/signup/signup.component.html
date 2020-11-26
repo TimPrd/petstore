@@ -1,13 +1,63 @@
 <div>
     <form [formGroup]="form" (ngSubmit)="onSubmitSignup()">
-        <input type="text" name="username" placeholder="Username" formControlName="username">
-        <div *ngIf="f.username.errors">
-            Username not valid.
+        <div class="container">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" class="form-control" formControlName="username" />
+                <div *ngIf="f.username.errors">
+                    Username not valid.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" class="form-control" formControlName="password">
+                <div *ngIf="f.password.errors">
+                    Password not valid.
+                </div>
+            </div>
+            <div class="form-group">
+
+                <label for="birthday">Birthday</label>
+                <div class="input-group">
+                    <input class="form-control" placeholder="yyyy-mm-dd" name="dp" formControlName="birthday"
+                        ngbDatepicker #d="ngbDatepicker">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary cal" (click)="d.toggle()" type="button"></button>
+                    </div>
+                </div>
+                <!-- <ngb-datepicker #dp formControlName="birthday" (navigate)="date = $event.next"></ngb-datepicker> -->
+                <!-- <input class="form-control" placeholder="yyyy-mm-dd" 
+                formControlName="birthday" ngbDatepicker #a="ngbDatepicker"> -->
+                <!-- <input type="text" id="birthday" class="form-control" formControlName="birthday" > -->
+                <div *ngIf="f.birthday.errors">
+                    Birthday is not valid.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lastname">Lastname</label>
+                <input type="text" id="lastname" class="form-control" formControlName="lastName">
+                <div *ngIf="f.lastName.errors">
+                    Lastname is not valid.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="firstname">Firstname</label>
+                <input type="text" id="firstname" class="form-control" formControlName="firstName">
+                <div *ngIf="f.firstName.errors">
+                    Firstname is not valid.
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-check form-check-inline" *ngFor="let category of catergories">
+                    <input class="form-check-input" type="radio" id="inlineRadio-{{category}}" [value]="category"
+                        formControlName="role">
+                    <label class="form-check-label" for="inlineRadio-{{category}}">{{category}}</label>
+                </div>
+            </div>
+            <button class="btn btn-success" [disabled]="!form.valid">
+                Submit Form
+            </button>
         </div>
-        <input type="password" name="password" placeholder="Password" formControlName="password">
-        <div *ngIf="f.password.errors">
-            Password not valid.
-        </div>
-        <button type="submit"> Signin</button>
+
     </form>
 </div>

@@ -29,8 +29,8 @@ export class AuthService {
     return this.currentSessionSubject.value;
   }
 
-  public signup({ username, password }): Observable<any> {
-    return this.http.post(`${environment.server}/signup`, { username, password });
+  public signup({ username, password, birthday, firstName, lastName, role }): Observable<any> {
+    return this.http.post(`${environment.server}/auth/signup`, { "user": { login: username, password, birthday, firstName, lastName, role } });
   }
 
   public signin(user): Observable<any> {

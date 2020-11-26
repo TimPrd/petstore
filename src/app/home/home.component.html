@@ -1,4 +1,17 @@
-<p>home works!</p>
+<app-header></app-header>
 
+<ng-template #seller>
+    <app-seller-layout></app-seller-layout>
+</ng-template>
 
-<button (click)="logout()"> Logout</button>
+<ng-template #buyer>
+    <app-buyer-layout></app-buyer-layout>
+</ng-template>
+
+<ng-template #defaultTemplate>Default role...</ng-template>
+
+<ng-container [ngSwitch]="user?.role">
+    <ng-container *ngSwitchCase="'seller'" [ngTemplateOutlet]="seller"></ng-container>
+    <ng-container *ngSwitchCase="'buyer'" [ngTemplateOutlet]="buyer"></ng-container>
+    <ng-container *ngSwitchDefault [ngTemplateOutlet]="defaultTemplate"></ng-container>
+</ng-container>

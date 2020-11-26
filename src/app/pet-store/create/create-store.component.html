@@ -1,18 +1,10 @@
-<div>
-    <form [formGroup]="form" (ngSubmit)="onSubmitSignin()">
-        <input type="text" name="username" placeholder="Username" formControlName="username">
-        <div *ngIf="f.username.errors">
-            Username not valid.
-        </div>
-        <input type="password" name="password" placeholder="Password" formControlName="password">
-        <div *ngIf="f.password.errors">
-            Password not valid.
-        </div>
-        <button type="submit"> Signin</button>
-    </form>
+<div class="modal-header">
+    <h4 class="modal-title">My Form</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
 </div>
 
-<!-- 
 <form [formGroup]="myForm" (ngSubmit)="submitForm()">
     <div class="modal-boy">
         <div class="container">
@@ -31,4 +23,4 @@
             Submit Form
         </button>
     </div>
-</form> -->
+</form>
