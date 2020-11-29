@@ -1,50 +1,40 @@
 <a routerLink="/signin" class="float-right">Se connecter</a>
 
-<h1 class="h3 font-weight-normal ">Login</h1>
+<h1 class="h3 font-weight-normal ">Sign up</h1>
+<ngb-alert *ngIf="isAlert" [type]="'danger'" (closed)="closeAlert()">Invalid login</ngb-alert>
 <div id="signup-form">
     <form [formGroup]="form" (ngSubmit)="onSubmitSignup()">
         <div class="container">
             <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" id="username" class="form-control" formControlName="username" />
-                <div *ngIf="f.username.errors">
-                    Username not valid.
-                </div>
+                <input type="text" id="username" class="form-control" formControlName="username"
+                    [ngClass]="{'error' : f.username.errors}" />
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" class="form-control" formControlName="password">
-                <div *ngIf="f.password.errors">
-                    Password not valid.
-                </div>
+                <input type="password" id="password" class="form-control" formControlName="password"
+                    [ngClass]="{'error' : f.password.errors}">
             </div>
             <div class="form-group">
 
                 <label for="birthday">Birthday</label>
                 <div class="input-group">
                     <input class="form-control" placeholder="yyyy-mm-dd" name="dp" formControlName="birthday"
-                        ngbDatepicker #d="ngbDatepicker">
+                        ngbDatepicker #d="ngbDatepicker" [ngClass]="{'error' : f.birthday.errors}">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary cal" (click)="d.toggle()" type="button"></button>
                     </div>
                 </div>
-                <div *ngIf="f.birthday.errors">
-                    Birthday is not valid.
-                </div>
             </div>
             <div class="form-group">
                 <label for="lastname">Lastname</label>
-                <input type="text" id="lastname" class="form-control" formControlName="lastName">
-                <div *ngIf="f.lastName.errors">
-                    Lastname is not valid.
-                </div>
+                <input type="text" id="lastname" class="form-control" formControlName="lastName"
+                    [ngClass]="{'error' : f.lastName.errors}">
             </div>
             <div class="form-group">
                 <label for="firstname">Firstname</label>
-                <input type="text" id="firstname" class="form-control" formControlName="firstName">
-                <div *ngIf="f.firstName.errors">
-                    Firstname is not valid.
-                </div>
+                <input type="text" id="firstname" class="form-control" formControlName="firstName"
+                    [ngClass]="{'error' : f.firstName.errors}">
             </div>
             <div class="form-group">
                 <div class="form-check form-check-inline" *ngFor="let category of catergories">

@@ -1,13 +1,15 @@
-<div id="main-container">
+<div id="loader-container" *ngIf="load">
+    <div class="spinner-grow text-secondary" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+
+<div id="main-container" *ngIf="!load">
     <div id="left-outlet" [ngClass]="{'full-width': !showOutlet}">
-        <!-- <app-search></app-search> -->
         <router-outlet id="main"></router-outlet>
     </div>
     <div id="right-outlet" [hidden]="!showOutlet">
-        <!-- <router-outlet name="side" (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
-        </router-outlet> -->
-
-        <router-outlet id="side" name="side" (activate)="onActivate($event)" (deactivate)="onDeactivate($event)"></router-outlet>
-
+        <router-outlet id="side" name="side" (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
+        </router-outlet>
     </div>
 </div>

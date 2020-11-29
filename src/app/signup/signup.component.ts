@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
+import { LoadingService } from '../services/loading.service';
 
 @Component({
   selector: 'app-signup',
@@ -12,7 +13,8 @@ import { Router } from '@angular/router';
 export class SignupComponent implements OnInit {
 
   form;
-  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService, private parserFormatter: NgbDateParserFormatter) { }
+  isAlert: boolean = false;
+  constructor(private loader: LoadingService, private fb: FormBuilder, private router: Router, private authService: AuthService, private parserFormatter: NgbDateParserFormatter) { }
 
   catergories = ["buyer", "seller"];
 
@@ -40,8 +42,12 @@ export class SignupComponent implements OnInit {
     values.birthday = this.parserFormatter.format(values.birthday);
     this.authService.signup(values).subscribe(
       (data) => this.router.navigate(['/signin']),
-      (error) => console.log(error),
-      () => console.log('done')
+      (error) => { this.isAlert = true; this.loader.loading = false; },
+      () => this.loader.loading = false
     );
+  }
+
+  closeAlert() {
+    this.isAlert = false;
   }
 }

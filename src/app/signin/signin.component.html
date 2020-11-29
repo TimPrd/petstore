@@ -1,25 +1,18 @@
 <a routerLink="/signup" class="float-right">S'inscrire</a>
-
 <h1 class="h3 font-weight-normal ">Login</h1>
-
+<ngb-alert *ngIf="isAlert" [type]="'danger'" (closed)="closeAlert()">Invalid login</ngb-alert>
 <div id="signin-form">
     <form [formGroup]="form" (ngSubmit)="onSubmitSignin()">
         <div class="container">
             <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" id="username" placeholder="Username" class="form-control"
-                    formControlName="username" />
-                <div *ngIf="f.username.errors">
-                    Username not valid.
-                </div>
+                <input type="text" id="username" placeholder="Username" class="form-control" formControlName="username"
+                    [ngClass]="{'error' : f.username.errors}" />
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" placeholder="Password" class="form-control"
-                    formControlName="password" />
-                <div *ngIf="f.username.errors">
-                    Password not valid.
-                </div>
+                    formControlName="password" [ngClass]="{'error' : f.password.errors}" />
             </div>
             <div class="text-center">
                 <button class="btn btn-success" [disabled]="!form.valid">

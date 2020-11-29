@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { config } from 'rxjs';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { LoadingService } from '../services/loading.service';
 
 @Component({
   selector: 'app-auth',
@@ -15,7 +16,7 @@ export class AuthComponent implements OnInit {
   loader: GLTFLoader;
   clock: THREE.Clock;
 
-  constructor(private router: Router) { }
+  constructor(private loadingService: LoadingService, private router: Router) { }
   ngOnInit(): void {
     this.urlLogOrCreate = this.router.url.split('/').pop();
   }
