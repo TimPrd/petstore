@@ -1,0 +1,27 @@
+:host {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10%;
+
+    #auth-container {
+        height: 100%;
+
+        h1 {
+            -webkit-text-decoration: hotpink double underline;
+            text-decoration: hotpink double underline;
+        }
+        
+        #auth-field {
+            height: 100%;
+            width: 100%;
+            padding: 15px;
+            margin: 0 auto;
+        }
+
+        // #auth-decor {
+        //     // background-color: red;
+        // }
+    }
+}

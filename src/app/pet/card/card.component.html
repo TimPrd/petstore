@@ -1,9 +1,17 @@
-<div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
+<div class="card">
+    <div class="card-head" [ngSwitch]="pet.type">
+        <img *ngSwitchCase="'DOG'" src="https://placedog.net/250/250?random" class="card-img-top rounded">
+        <img *ngSwitchCase="'CAT'" src="https://placekitten.com/g/250/250" class="card-img-top rounded">
+    </div>
+
     <div class="card-body">
         <h5 class="card-title">{{pet.name}}</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <ul class="card-text">
+            <li>Naissance : {{pet.birthday | date}}</li>
+            <li>{{pet.availability ? "Disponible" : "Non disponible" }}</li>
+        </ul>
+        <div *ngIf="pet.availability && isBuyer" class="text-center">
+            <a href="#" class="btn btn-primary center">Acheter</a>
+        </div>
     </div>
 </div>

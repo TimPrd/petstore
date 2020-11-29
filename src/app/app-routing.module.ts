@@ -5,13 +5,15 @@ import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { AuthGuard } from './helpers/guards/auth.guard';
 import { PetStoreComponent } from './pet-store/pet-store.component';
+import { AuthComponent } from './auth/auth.component';
+
 const routes: Routes = [
   {
     path: 'signup',
-    component: SignupComponent
+    component: AuthComponent
   }, {
     path: 'signin',
-    component: SigninComponent
+    component: AuthComponent
   },
   {
     path: 'home',
@@ -21,7 +23,8 @@ const routes: Routes = [
   {
     path: 'store/:id',
     component: PetStoreComponent,
-    outlet: 'side'
+    outlet: 'side',
+    canActivate: [AuthGuard]
   },
   {
     path: '**',

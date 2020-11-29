@@ -1,0 +1,7 @@
+<ul>
+    <li *ngFor="let store of stores">
+        <div (click)="goToStore(store.id)">
+            Store #{{store.id}}
+        </div>
+    </li>
+</ul>

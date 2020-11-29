@@ -1,4 +1,7 @@
-<div>
+<a routerLink="/signin" class="float-right">Se connecter</a>
+
+<h1 class="h3 font-weight-normal ">Login</h1>
+<div id="signup-form">
     <form [formGroup]="form" (ngSubmit)="onSubmitSignup()">
         <div class="container">
             <div class="form-group">
@@ -25,10 +28,6 @@
                         <button class="btn btn-outline-secondary cal" (click)="d.toggle()" type="button"></button>
                     </div>
                 </div>
-                <!-- <ngb-datepicker #dp formControlName="birthday" (navigate)="date = $event.next"></ngb-datepicker> -->
-                <!-- <input class="form-control" placeholder="yyyy-mm-dd" 
-                formControlName="birthday" ngbDatepicker #a="ngbDatepicker"> -->
-                <!-- <input type="text" id="birthday" class="form-control" formControlName="birthday" > -->
                 <div *ngIf="f.birthday.errors">
                     Birthday is not valid.
                 </div>
@@ -54,9 +53,11 @@
                     <label class="form-check-label" for="inlineRadio-{{category}}">{{category}}</label>
                 </div>
             </div>
-            <button class="btn btn-success" [disabled]="!form.valid">
-                Submit Form
-            </button>
+            <div class="text-center">
+                <button class="btn btn-success" [disabled]="!form.valid">
+                    Sign Up
+                </button>
+            </div>
         </div>
 
     </form>

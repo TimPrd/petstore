@@ -2,10 +2,8 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, from, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { map, tap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
-// import jwt_decode from 'jwt-decode';
-import { UserService } from './user.service';
 import { Session } from '../models/session.model';
 
 @Injectable({
@@ -47,7 +45,7 @@ export class AuthService {
   public logout(): void {
     localStorage.removeItem('currentSession');
     this.currentSessionSubject.next(null);
-    this.router.navigate(['/signin']);
+    this.router.navigate(['/signin', { outlets: { side: null } }]);
   }
 
   public get token() {

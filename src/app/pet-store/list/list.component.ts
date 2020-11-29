@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements OnInit {
+export class PetStoreListComponent implements OnInit {
 
   @Input() stores: any[];
 
@@ -18,4 +18,5 @@ export class ListComponent implements OnInit {
   goToStore(id) {
     this.router.navigate([{ outlets: { side: `store/${id}` } }]);
   }
+
 }

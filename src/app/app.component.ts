@@ -7,5 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'front';
-  
+
+  showOutlet: boolean = false;
+
+  onActivate(event: any) {
+    this.showOutlet = true;
+  }
+
+  onDeactivate(event: any) {
+    this.showOutlet = false;
+  }
+
 }

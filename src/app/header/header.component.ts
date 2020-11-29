@@ -9,7 +9,7 @@ import { AuthService } from '../services/auth.service';
 export class HeaderComponent implements OnInit {
   navbarOpen = false;
 
-  constructor(    private auth: AuthService    ) { }
+  constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
   }
@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
   }
-  
+
   logout() {
     this.auth.logout()
   }

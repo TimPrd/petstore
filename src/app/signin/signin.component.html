@@ -1,16 +1,38 @@
-<div>
+<a routerLink="/signup" class="float-right">S'inscrire</a>
+
+<h1 class="h3 font-weight-normal ">Login</h1>
+
+<div id="signin-form">
     <form [formGroup]="form" (ngSubmit)="onSubmitSignin()">
-        <input type="text" name="username" placeholder="Username" formControlName="username">
-        <div *ngIf="f.username.errors">
-            Username not valid.
+        <div class="container">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Username" class="form-control"
+                    formControlName="username" />
+                <div *ngIf="f.username.errors">
+                    Username not valid.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Password" class="form-control"
+                    formControlName="password" />
+                <div *ngIf="f.username.errors">
+                    Password not valid.
+                </div>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-success" [disabled]="!form.valid">
+                    Sign In
+                </button>
+            </div>
         </div>
-        <input type="password" name="password" placeholder="Password" formControlName="password">
-        <div *ngIf="f.password.errors">
-            Password not valid.
-        </div>
-        <button type="submit"> Signin</button>
     </form>
 </div>
+
+
+
+
 
 <!-- 
 <form [formGroup]="myForm" (ngSubmit)="submitForm()">

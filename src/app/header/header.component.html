@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">
-        Brand
+        Name
     </a>
 
     <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
@@ -11,11 +11,11 @@
     <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <button (click)="logout()"> Logout</button>
+                <button type="button" class="btn btn-dark"> Mon compte</button>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">Item 2</a>
+                <button type="button" (click)="logout()" class="btn btn-dark"> Logout</button>
             </li>
         </ul>
     </div>

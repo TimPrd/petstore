@@ -1,7 +1,8 @@
-<ul>
+<ul>    
     <li *ngFor="let store of stores">
-        <div (click)="goToStore(store.id)">
+        <div (click)="goToStore(store.id)" class="p-3 mb-2 bg-light text-dark">
             Store #{{store.id}}
+            <span class="float-right"> > </span>
         </div>
     </li>
 </ul>

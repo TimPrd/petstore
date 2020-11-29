@@ -15,8 +15,10 @@ import { CreateStoreComponent } from './pet-store/create/create-store.component'
 import { CardComponent } from './pet/card/card.component';
 import { SellerLayoutComponent } from './layouts/seller-layout/seller-layout.component';
 import { BuyerLayoutComponent } from './layouts/buyer-layout/buyer-layout.component';
-import { ListComponent } from './pet-store/list/list.component';
+import { PetListComponent } from './pet/list/list.component';
 import { HeaderComponent } from './header/header.component';
+import { PetStoreListComponent } from './pet-store/list/list.component';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -29,8 +31,10 @@ import { HeaderComponent } from './header/header.component';
     CardComponent,
     SellerLayoutComponent,
     BuyerLayoutComponent,
-    ListComponent,
-    HeaderComponent
+    PetListComponent,
+    HeaderComponent,
+    PetStoreListComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,

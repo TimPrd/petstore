@@ -1,0 +1,12 @@
+<div id="auth-container" class="container">
+    <h1 class="h2 font-weight-normal text-center">PetStore</h1>
+    <div id="auth-field" class="row">
+        <ng-container [ngSwitch]="urlLogOrCreate">
+            <app-signin *ngSwitchCase="'signin'" class="col"></app-signin>
+            <app-signup *ngSwitchCase="'signup'" class="col"></app-signup>
+        </ng-container>
+
+        <div id="auth-decor" #scene class="col">
+        </div>
+    </div>
+</div>
